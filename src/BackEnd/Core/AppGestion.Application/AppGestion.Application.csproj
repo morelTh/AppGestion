@@ -11,8 +11,19 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Role\Commands\" />
-      <Folder Include="Models\" />
+      <Folder Include="Extensions\" />
+      <Folder Include="Features\Role\Queries\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="13.0.1" />
+      <PackageReference Include="FluentValidation" Version="11.9.2" />
+      <PackageReference Include="Mediator.Abstractions" Version="2.1.7" />
+      <PackageReference Include="Mediator.SourceGenerator" Version="2.1.7">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="MediatR" Version="12.4.0" />
     </ItemGroup>
 
 </Project>
