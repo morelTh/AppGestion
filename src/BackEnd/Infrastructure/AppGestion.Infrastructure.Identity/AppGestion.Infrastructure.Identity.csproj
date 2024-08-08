@@ -10,4 +10,10 @@
       <ProjectReference Include="..\AppGestion.Infrastructure.Persistence\AppGestion.Infrastructure.Persistence.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.7" />
+      <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="8.0.7" />
+    </ItemGroup>
+
 </Project>

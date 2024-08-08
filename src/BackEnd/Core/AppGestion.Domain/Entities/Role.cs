@@ -2,15 +2,13 @@ using Microsoft.AspNetCore.Identity;
 
 namespace AppGestion.Domain.Entities;
 
-public class Role : IdentityRole<int>,IEntity
+public class Role : IdentityRole<int>, ITimeModification,IEntity
 {
-    public Role()
-    {
-        CreatedDate=DateTime.Now;
-    }
+    public DateTime CreatedTime { get; set; }
+    public DateTime? ModifiedDate { get; set; }
     
-    public string DisplayName { get; set; }
-    public DateTime CreatedDate { get; set; }
-    public ICollection<RoleClaim> Claims { get; set; }
-    public ICollection<UserRole> Users { get; set; }
+    #region Navigation Properties
+    public virtual ICollection<UserRole>? UserRoles { get; set; }
+    public virtual ICollection<RoleClaim>? RoleClaims { get; set; }
+    #endregion
 }

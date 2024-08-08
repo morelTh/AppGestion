@@ -4,11 +4,10 @@ namespace AppGestion.Domain.Entities;
 
 public class UserLogin : IdentityUserLogin<int>,IEntity
 {
-    public UserLogin()
-    {
-        LoggedOn=DateTime.Now;
-    }
-
-    public User User { get; set; }
+    public UserLogin() => LoggedOn=DateTime.Now;
     public DateTime LoggedOn { get; set; }
+    
+    #region Navigation Properties
+    public virtual User? User { get; set; }
+    #endregion
 }

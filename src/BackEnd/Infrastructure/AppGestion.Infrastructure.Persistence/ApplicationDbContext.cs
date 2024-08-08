@@ -1,4 +1,6 @@
 using AppGestion.Domain.Entities;
+using AppGestion.Infrastructure.Persistence.Configuration.Identity;
+using AppGestion.Infrastructure.Persistence.Extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +12,27 @@ public class ApplicationDbContext : IdentityDbContext<User,  Role, int, UserClai
     {
         base.SavingChanges += OnSavingChanges!;
     }
-    
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+        var entitiesAssembly = typeof(IEntity).Assembly;
+        builder.RegisterAllEntities<IEntity>(entitiesAssembly);
+        
+        builder.ApplyConfiguration(new RoleConfig());
+        builder.ApplyConfiguration(new UserConfig());
+        builder.ApplyConfiguration(new UserRoleConfig());
+        builder.ApplyConfiguration(new RefreshTokenConfig());
+        builder.ApplyConfiguration(new RoleClaimConfig());
+        builder.ApplyConfiguration(new UserClaimConfig());
+        builder.ApplyConfiguration(new UserLoginConfig());
+        builder.ApplyConfiguration(new UserTokenConfig());
+        
+        //builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+        builder.AddRestrictDeleteBehaviorConvention();
+        builder.AddPluralizingTableNameConvention();
+    }
+
     private void OnSavingChanges(object sender, SavingChangesEventArgs e)
     {
         ConfigureEntityDates();
