@@ -15,7 +15,7 @@ namespace AppGestion.Infrastructure.Persistence.Configuration.Identity
             builder.HasOne(u => u.Role)
                 .WithMany(u => u.UserRoles)
                 .HasForeignKey(u => u.RoleId);
-            builder.ToTable("UserRoles");
+            builder.ToTable("UserRoles", "usr");
         }
     }
 }

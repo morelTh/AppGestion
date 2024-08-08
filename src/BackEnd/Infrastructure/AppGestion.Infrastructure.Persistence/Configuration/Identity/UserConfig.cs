@@ -33,9 +33,9 @@ namespace AppGestion.Infrastructure.Persistence.Configuration.Identity
                 .HasForeignKey(ur => ur.UserId)
                 .IsRequired();
             
-            builder.ToTable("Users");
-                /*Property(p => p.Id)
-                .HasColumnName("UserId")*/;
+            builder.ToTable("Users", "usr")
+                .Property(p => p.Id)
+                .HasColumnName("UserId");
         }
     }
 }

@@ -12,7 +12,7 @@ namespace AppGestion.Infrastructure.Persistence.Configuration.Identity
                 .WithMany(u => u.RoleClaims)
                 .HasForeignKey(u => u.RoleId)
                 .OnDelete(DeleteBehavior.Cascade);
-            builder.ToTable("RoleClaims");
+            builder.ToTable("RoleClaims", "usr");
         }
     }
 }

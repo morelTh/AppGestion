@@ -21,7 +21,7 @@ namespace AppGestion.Infrastructure.Persistence.Configuration.Identity
                 .HasForeignKey(rc => rc.RoleId)
                 .IsRequired();
             
-            builder.ToTable("Roles");
+            builder.ToTable("Roles", "usr");
         }
     }
 }

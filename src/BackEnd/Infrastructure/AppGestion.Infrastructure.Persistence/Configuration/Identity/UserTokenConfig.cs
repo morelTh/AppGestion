@@ -12,6 +12,6 @@ internal class UserTokenConfig : IEntityTypeConfiguration<UserToken>
             .WithMany(u => u.Tokens)
             .HasForeignKey(u => u.UserId);
         
-        builder.ToTable("UserTokens");
+        builder.ToTable("UserTokens", "usr");
     }
 }

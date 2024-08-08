@@ -12,6 +12,6 @@ internal class RefreshTokenConfig : IEntityTypeConfiguration<UserRefreshToken>
             .WithMany(user => user.UserRefreshTokens)
             .HasForeignKey(u => u.UserId);
 
-        builder.ToTable("UserRefreshTokens");
+        builder.ToTable("UserRefreshTokens", "usr");
     }
 }

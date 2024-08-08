@@ -10,7 +10,7 @@ public class ApiResult
     public string Message { get; set; }
     public string RequestId { get;  }
 
-    public ApiResult(bool isSuccess, ApiResultStatusCode statusCode, string message)
+    public ApiResult(bool isSuccess, ApiResultStatusCode statusCode, string message = null)
     {
         IsSuccess = isSuccess;
         StatusCode = statusCode;

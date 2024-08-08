@@ -11,7 +11,7 @@ namespace AppGestion.Infrastructure.Persistence.Configuration.Identity
             builder.HasOne(u => u.User)
                 .WithMany(u => u.Logins)
                 .HasForeignKey(u => u.UserId);
-            builder.ToTable("UserLogins");
+            builder.ToTable("UserLogins", "usr");
         }
     }
 }
